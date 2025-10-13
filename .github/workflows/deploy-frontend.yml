@@ -1,4 +1,4 @@
-name: Deploy Frontend to GitHub Pages
+name: 🚀 Deploy Frontend to GitHub Pages
 
 on:
   push:
@@ -7,29 +7,40 @@ on:
 
 jobs:
   build:
+    name: Build and Deploy
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    defaults:
+      run:
+        working-directory: frontend
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+    steps:
+      # 1️⃣ Checkout the repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Setup Node.js with caching
+      - name: Setup Node.js and cache dependencies
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: '18'
           cache: 'npm'
           cache-dependency-path: frontend/package-lock.json
 
+      # 3️⃣ Install dependencies
       - name: Install dependencies
-        working-directory: frontend
         run: npm ci
 
+      # 4️⃣ Build the project
       - name: Build project
-        working-directory: frontend
         run: npm run build
 
+      # 5️⃣ Upload production-ready files to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: frontend/dist
+          publish_branch: gh-pages
+          keep_files: false
+          force_orphan: true
