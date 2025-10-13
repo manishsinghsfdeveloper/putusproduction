@@ -1,40 +1,24 @@
-# Putus Production Website
+# Putus Production — Demo site (multi-page)
 
-Modern advertising/branding production house website built with React (frontend) + FastAPI (backend).
+This archive contains a ready-to-upload React + Vite + Tailwind project for Putus Production.
+It is intentionally unique and does NOT copy text or images from other companies.
 
-## Setup
+## How to run locally
 
-### 1. Clone repository
-```bash
-git clone <your-repo-url> putusproduction
-cd putusproduction
-```
-
-### 2. Frontend setup
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-### 3. Backend setup
+Open http://localhost:3000/putusproduction/
+
+## Build for production
 ```bash
-cd backend
-pip install -r requirements.txt
-uvicorn main:app --reload
+cd frontend
+npm run build
 ```
 
-### 4. Deployment
-- Frontend: GitHub Pages (auto from Actions)
-- Backend: Deploy to Hostinger VPS or any server (Docker recommended)
-
-Domain: [https://putusproduction.com](https://putusproduction.com)
-
-
-### 5. GitHub Pages Deployment
-This repo includes a GitHub Actions workflow (`.github/workflows/deploy-frontend.yml`).  
-Once you push the repo to GitHub (main branch), the frontend will be automatically built and deployed to **GitHub Pages**.
-
-- Go to your repo Settings → Pages
-- Set "Deploy from branch" → `gh-pages` branch (created by the workflow)
-- Your site will be live at: `https://<your-username>.github.io/putusproduction`
+## Deploy to GitHub Pages
+Ensure your repo uses the `vite.config.ts` base '/putusproduction/' and push to GitHub.
+Add/update GitHub Actions workflow to build frontend and publish `frontend/dist` to `gh-pages` branch.
