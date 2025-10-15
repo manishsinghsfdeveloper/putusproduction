@@ -1,12 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root{--radius:16px}
-html,body,#root{height:100%}
-body{@apply bg-black text-white font-sans}
-.container{@apply max-w-6xl mx-auto px-6}
-.section{@apply py-16}
-.red-btn{@apply inline-flex items-center gap-2 bg-ember text-white px-6 py-3 rounded-full}
-.card{@apply bg-white/5 rounded-xl p-6}
+:root {
+  --radius: 16px;
+}
+
+/* Make full height layout */
+html, body, #root {
+  height: 100%;
+}
+
+/* ✅ Correct Tailwind syntax */
+body {
+  @apply bg-[#0f172a] text-white font-sans;
+}
+
+/* Containers and sections */
+.container {
+  @apply max-w-6xl mx-auto px-6;
+}
+
+.section {
+  @apply py-16;
+}
+
+/* Buttons */
+.red-btn {
+  @apply inline-flex items-center gap-2 bg-ember text-white px-6 py-3 rounded-full;
+}
+
+/* Cards */
+.card {
+  @apply bg-white/5 rounded-xl p-6;
+}
