@@ -1,24 +1,13 @@
-# Putus Production — Demo site (multi-page)
+# Putus Production — Full demo frontend
 
-This archive contains a ready-to-upload React + Vite + Tailwind project for Putus Production.
-It is intentionally unique and does NOT copy text or images from other companies.
+This is a demo-ready frontend for Putus Production (React + Vite + Tailwind + Framer Motion).
 
-## How to run locally
-
-```bash
+## Run locally
 cd frontend
 npm install
 npm run dev
-```
 
-Open http://localhost:3000/putusproduction/
+Open http://localhost:5173/putusproduction/
 
-## Build for production
-```bash
-cd frontend
-npm run build
-```
-
-## Deploy to GitHub Pages
-Ensure your repo uses the `vite.config.ts` base '/putusproduction/' and push to GitHub.
-Add/update GitHub Actions workflow to build frontend and publish `frontend/dist` to `gh-pages` branch.
+## Deploy
+Push to GitHub and use the included GitHub Actions workflow to publish to GitHub Pages.
