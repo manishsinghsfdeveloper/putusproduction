@@ -1,29 +1,13 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
+import App from './App'
 import './styles/globals.css'
-import Home from './pages/Home'
-import Work from './pages/Work'
-import Services from './pages/Services'
-import About from './pages/About'
-import Contact from './pages/Contact'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
 
-function App(){
-  return (
+createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
     <BrowserRouter basename="/putusproduction">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/work" element={<Work/>} />
-        <Route path="/services" element={<Services/>} />
-        <Route path="/about" element={<About/>} />
-        <Route path="/contact" element={<Contact/>} />
-      </Routes>
-      <Footer />
+      <App />
     </BrowserRouter>
-  )
-}
-
-createRoot(document.getElementById('root')!).render(<App />)
+  </React.StrictMode>
+)

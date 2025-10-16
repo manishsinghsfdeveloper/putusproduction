@@ -1,30 +1,45 @@
-import { motion } from "framer-motion";
-import { Rocket } from "lucide-react";
+import React from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import { AnimatePresence, motion } from 'framer-motion'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import PageLoader from './components/PageLoader'
+import Home from './pages/Home'
+import Work from './pages/Work'
+import Services from './pages/Services'
+import About from './pages/About'
+import Studio from './pages/Studio'
+import Careers from './pages/Careers'
+import Contact from './pages/Contact'
+import Clients from './pages/Clients'
+import Insights from './pages/Insights'
+import NotFound from './pages/NotFound'
 
-function App() {
+export default function App(){
+  const location = useLocation()
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-center p-6">
-      <motion.h1
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="text-5xl font-bold text-red-600"
-      >
-        Putus Production
-      </motion.h1>
-      <p className="mt-4 text-lg max-w-xl">
-        We are a modern advertising and branding production house. Bold ideas, strong visuals, unforgettable campaigns.
-      </p>
-      <motion.div
-        className="mt-10 p-4 rounded-full bg-red-600 text-white flex items-center gap-2 cursor-pointer hover:bg-red-700"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <Rocket />
-        <span>Work With Us</span>
-      </motion.div>
+    <div className="min-h-screen flex flex-col">
+      <PageLoader />
+      <Navbar />
+      <AnimatePresence mode="wait" initial={false}>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<PageWrap><Home/></PageWrap>} />
+          <Route path="/work" element={<PageWrap><Work/></PageWrap>} />
+          <Route path="/services" element={<PageWrap><Services/></PageWrap>} />
+          <Route path="/about" element={<PageWrap><About/></PageWrap>} />
+          <Route path="/studio" element={<PageWrap><Studio/></PageWrap>} />
+          <Route path="/careers" element={<PageWrap><Careers/></PageWrap>} />
+          <Route path="/contact" element={<PageWrap><Contact/></PageWrap>} />
+          <Route path="/clients" element={<PageWrap><Clients/></PageWrap>} />
+          <Route path="/insights" element={<PageWrap><Insights/></PageWrap>} />
+          <Route path="*" element={<PageWrap><NotFound/></PageWrap>} />
+        </Routes>
+      </AnimatePresence>
+      <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+function PageWrap({children}:{children:React.ReactNode}){
+  return <motion.main initial={{opacity:0, y:10}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-10}} transition={{duration:0.5}} className="flex-1">{children}</motion.main>
+}
