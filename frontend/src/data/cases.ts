@@ -1,1 +1,27 @@
-export const cases = [{"title": "Reimagine Tomorrow", "client": "NovaTech", "image": "/src/assets/work1.jpg", "description": "An award-winning campaign blending technology and art."}, {"title": "Voices of Change", "client": "UN Impact", "image": "/src/assets/work2.jpg", "description": "A visual storytelling journey amplifying social change."}, {"title": "Unfold", "client": "Unfold Studios", "image": "/src/assets/work3.jpg", "description": "Rebranding the next generation of creative fashion."}] as any
+export const cases = [
+  {
+    title: "Reimagine Tomorrow",
+    client: "NovaTech",
+    image: "case1.jpg",
+  },
+  {
+    title: "Voices of Change",
+    client: "UN Impact",
+    image: "case2.jpg",
+  },
+  {
+    title: "Unfold",
+    client: "Unfold Studios",
+    image: "case3.jpg",
+  },
+  {
+    title: "The Future is Now",
+    client: "Skyline Films",
+    image: "case4.jpg",
+  },
+  {
+    title: "Design Beyond",
+    client: "Arka Labs",
+    image: "case5.jpg",
+  },
+];
