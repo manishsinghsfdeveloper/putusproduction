@@ -1,3 +1,4 @@
+// src/App.tsx
 import React from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -14,8 +15,9 @@ import Contact from './pages/Contact'
 import Clients from './pages/Clients'
 import Insights from './pages/Insights'
 import NotFound from './pages/NotFound'
+import WorkDetail from '@/pages/WorkDetail' // new route import
 
-export default function App(){
+export default function App() {
   const location = useLocation()
   return (
     <div className="min-h-screen flex flex-col">
@@ -25,6 +27,7 @@ export default function App(){
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<PageWrap><Home/></PageWrap>} />
           <Route path="/work" element={<PageWrap><Work/></PageWrap>} />
+          <Route path="/work/:slug" element={<PageWrap><WorkDetail/></PageWrap>} />
           <Route path="/services" element={<PageWrap><Services/></PageWrap>} />
           <Route path="/about" element={<PageWrap><About/></PageWrap>} />
           <Route path="/studio" element={<PageWrap><Studio/></PageWrap>} />
@@ -40,6 +43,16 @@ export default function App(){
   )
 }
 
-function PageWrap({children}:{children:React.ReactNode}){
-  return <motion.main initial={{opacity:0, y:10}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-10}} transition={{duration:0.5}} className="flex-1">{children}</motion.main>
+function PageWrap({children}:{children:React.ReactNode}) {
+  return (
+    <motion.main
+      initial={{opacity:0, y:10}}
+      animate={{opacity:1,y:0}}
+      exit={{opacity:0,y:-10}}
+      transition={{duration:0.5}}
+      className="flex-1"
+    >
+      {children}
+    </motion.main>
+  )
 }
