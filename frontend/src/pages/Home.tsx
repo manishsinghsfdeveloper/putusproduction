@@ -10,6 +10,17 @@ export default function Home() {
   return (
     <div>
       <Hero />
+      <section className="section bg-gradient-to-b from-gray-900 to-black text-gray-200 py-16">
+        <div className="container max-w-4xl mx-auto text-center space-y-6">
+          <h2 className="text-4xl font-display font-bold text-white">About Putus Production</h2>
+          <p className="text-lg leading-relaxed">
+            Putus (Lantana Camara from the family Verbenaceae) is a versatile and visually striking plant from Jharkhand, India that has both vibrant impacts depending on its context and management. The same context, we carry in our startup Putus.
+            We at Putus do filmmaking, advertisements, promotion of your product, provide our services, idea, and concept for the betterment of our day-to-day life.
+            Our goal is to persuade and influence target audiences to take specific actions, such as purchasing a product, subscribing to a service, or adopting a particular viewpoint on genuine grounds.
+          </p>
+        </div>
+      </section>
+
 
       <section className="section relative">
         <div className="container relative z-10">

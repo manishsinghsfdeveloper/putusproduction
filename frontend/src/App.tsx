@@ -16,6 +16,7 @@ import Clients from './pages/Clients'
 import Insights from './pages/Insights'
 import NotFound from './pages/NotFound'
 import WorkDetail from '@/pages/WorkDetail' // new route import
+import LeaderDetail from '@/pages/LeaderDetail'
 
 export default function App() {
   const location = useLocation()
@@ -29,7 +30,8 @@ export default function App() {
           <Route path="/work" element={<PageWrap><Work/></PageWrap>} />
           <Route path="/work/:slug" element={<PageWrap><WorkDetail/></PageWrap>} />
           <Route path="/services" element={<PageWrap><Services/></PageWrap>} />
-          <Route path="/about" element={<PageWrap><About/></PageWrap>} />
+          <Route path="/about" element={<About />} />
+          <Route path="/leader/:id" element={<LeaderDetail />} />
           <Route path="/studio" element={<PageWrap><Studio/></PageWrap>} />
           <Route path="/careers" element={<PageWrap><Careers/></PageWrap>} />
           <Route path="/contact" element={<PageWrap><Contact/></PageWrap>} />

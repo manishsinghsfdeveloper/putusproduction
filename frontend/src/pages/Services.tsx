@@ -1,29 +1,34 @@
-import { motion } from 'framer-motion'
-export default function Services(){
-  const items = [
-    {title: 'Film Production', desc: 'From script to screen — commercials, branded films, short documentaries.', img:'/src/assets/work1.jpg'},
-    {title: 'Brand Strategy & Design', desc: 'Positioning, identity systems and narrative frameworks.', img:'/src/assets/work2.jpg'},
-    {title: 'Photography & Campaigns', desc: 'Editorial, product and lifestyle photography.', img:'/src/assets/work3.jpg'},
-    {title: 'Post-Production & Editing', desc: 'Color, sound and motion finishing.', img:'/src/assets/work1.jpg'},
-    {title: 'Digital & Social', desc: 'Content strategy, paid social and creative growth.', img:'/src/assets/work2.jpg'},
-  ]
+import React from "react";
+
+export default function Services() {
   return (
-    <section className="section">
-      <div className="container">
-        <h1 className="font-display text-4xl font-bold">Services</h1>
-        <p className="text-white/70 mt-2">Our disciplines</p>
-        <div className="grid md:grid-cols-2 gap-8 mt-8">
-          {items.map((it,i)=> (
-            <motion.div key={it.title} initial={{opacity:0,y:10}} whileInView={{opacity:1,y:0}} viewport={{once:true}} className="card flex gap-6 items-center">
-              <div className="w-36 h-24 overflow-hidden rounded-lg"><img src={it.img} className="w-full h-full object-cover" /></div>
-              <div>
-                <h3 className="font-display text-xl font-bold">{it.title}</h3>
-                <p className="text-white/70 mt-1">{it.desc}</p>
-              </div>
-            </motion.div>
-          ))}
+    <>
+      <section className="relative bg-gray-900 text-white py-20">
+        <div className="container mx-auto text-center px-6">
+          <h1 className="text-5xl font-bold mb-6">Our Services</h1>
+          <p className="text-lg max-w-3xl mx-auto leading-relaxed">
+            Our services include idea formation and ad creation for various platforms.
+            In an AI-driven world, it’s increasingly challenging to attract customers
+            to the right product. We use persuasive techniques — storytelling, humor,
+            emotion, celebrity endorsements, testimonials, and data-driven appeal —
+            to make your brand stand out.
+          </p>
         </div>
-      </div>
-    </section>
-  )
+      </section>
+
+      <section className="py-16 bg-gray-900 text-gray-200">
+        <div className="container max-w-4xl mx-auto text-center space-y-6">
+          <h2 className="text-4xl font-display font-bold text-white">
+            What We Offer
+          </h2>
+          <p className="text-lg leading-relaxed">
+            We at <strong>Putus</strong> strive to deliver satisfaction and measurable
+            results through our creative, strategic, and technical expertise.
+            From commercials and films to digital storytelling, our mission is to
+            connect you with your audience in meaningful ways.
+          </p>
+        </div>
+      </section>
+    </>
+  );
 }
