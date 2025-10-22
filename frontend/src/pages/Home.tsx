@@ -20,8 +20,7 @@ export default function Home() {
           </p>
         </div>
       </section>
-
-
+      
       <section className="section relative">
         <div className="container relative z-10">
           <div className="flex items-center justify-between mb-8">

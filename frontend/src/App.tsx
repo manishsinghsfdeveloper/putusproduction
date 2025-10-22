@@ -31,7 +31,7 @@ export default function App() {
           <Route path="/work/:slug" element={<PageWrap><WorkDetail/></PageWrap>} />
           <Route path="/services" element={<PageWrap><Services/></PageWrap>} />
           <Route path="/about" element={<About />} />
-          <Route path="/leader/:id" element={<LeaderDetail />} />
+          <Route path="/leader/:id" element={<PageWrap><LeaderDetail/></PageWrap>} />
           <Route path="/studio" element={<PageWrap><Studio/></PageWrap>} />
           <Route path="/careers" element={<PageWrap><Careers/></PageWrap>} />
           <Route path="/contact" element={<PageWrap><Contact/></PageWrap>} />
