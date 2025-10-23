@@ -33,4 +33,4 @@ jobs:
           protocol: ftp
           port: 21
           local-dir: ./frontend/dist/
-          server-dir: ./
+          server-dir: ""
