@@ -1,22 +1,39 @@
-# Use the index.html as the default landing page
-DirectoryIndex index.html
+# ==========================
+# Putus Production .htaccess
+# React + Vite Single Page App
+# ==========================
+
+# Use UTF-8 encoding
+AddDefaultCharset UTF-8
 
 # Enable URL rewriting
-Options +FollowSymLinks
-RewriteEngine On
-RewriteBase /
+<IfModule mod_rewrite.c>
+  RewriteEngine On
 
-# Serve existing files and directories as-is
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
+  # Allow direct access to files and directories
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
 
-# Redirect all other requests to index.html (for React Router / SPA)
-RewriteRule ^ index.html [L]
+  # Redirect all other routes to index.html
+  RewriteRule ^ index.html [L]
+</IfModule>
 
-# Disable directory listing
+# ==========================
+# Security & performance rules
+# ==========================
+
+# Prevent directory listing
 Options -Indexes
 
-# Ensure correct MIME types
-AddType application/javascript .js
-AddType text/css .css
+# Cache static assets (images, CSS, JS)
+<FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|svg|woff|woff2|ttf|eot|otf|ts|tsx)$">
+  Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
+
+# Handle 404 errors gracefully (optional)
+ErrorDocument 404 /index.html
+
+# ==========================
+# END OF FILE
+# ==========================
