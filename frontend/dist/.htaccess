@@ -1,0 +1,22 @@
+# Use the index.html as the default landing page
+DirectoryIndex index.html
+
+# Enable URL rewriting
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+
+# Serve existing files and directories as-is
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Redirect all other requests to index.html (for React Router / SPA)
+RewriteRule ^ index.html [L]
+
+# Disable directory listing
+Options -Indexes
+
+# Ensure correct MIME types
+AddType application/javascript .js
+AddType text/css .css
