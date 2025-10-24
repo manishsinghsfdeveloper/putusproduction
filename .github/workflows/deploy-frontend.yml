@@ -33,4 +33,4 @@ jobs:
           protocol: ftp
           port: 21
           local-dir: ./frontend/dist/
-          server-dir: /domains/putusproduction.com/public_html/
+          server-dir: /
