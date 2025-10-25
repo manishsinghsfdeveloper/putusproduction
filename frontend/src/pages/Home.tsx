@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 export default function Home() {
-  const categories = ['Commercial Ads', 'Short Films', 'Films']
+  const categories = Array.from(new Set(cases.map((c) => c.category)))
 
   return (
     <div>

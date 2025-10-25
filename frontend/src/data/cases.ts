@@ -7,7 +7,7 @@ export type CaseItem = {
   year?: string
   description?: string
   credits?: string
-  category: 'Commercial Ads' | 'Short Films' | 'Films'
+  category: 'Commercial Ads' | 'Short Films' | 'Films' | 'Public Service Awareness' 
 }
 
 import ppJewellersMother from '@/assets/work/pp-jewellers-mother-daughter.jpg'
@@ -21,6 +21,7 @@ import shivveda from '@/assets/work/shivveda.jpg'
 import lehenga from '@/assets/work/lehenga-trailer.jpg'
 import scotland from '@/assets/work/scotland-film.jpg'
 import successfulLoosers from '@/assets/work/successful-loosers.jpg'
+import jmmPSA from '@/assets/work/jmm-psa.jpg'
 
 export const cases: CaseItem[] = [
   {
@@ -114,7 +115,7 @@ export const cases: CaseItem[] = [
     category: "Short Films",
   },
   {
-    title: "Scotland (Oscar Qualifier 64)",
+    title: "Scotland (Official Trailer)",
     client: "Putus Production",
     slug: "scotland-film",
     thumb: scotland,
@@ -133,4 +134,15 @@ export const cases: CaseItem[] = [
     description: "Feature film streaming on MX Player.",
     category: "Films",
   },
+  {
+  title: "Public Service Awareness — Jharkhand Mukti Morcha (JMM)",
+  client: "Putus Production",
+  slug: "jmm-public-service-awareness",
+  thumb: jmmPSA,
+  videoUrl: "https://www.youtube.com/embed/eA2aZi5LpQs",
+  year: "2024",
+  description: "A meaningful government awareness film crafted by Putus Production to promote positive social impact.",
+  credits: "Directed and Produced by Putus Production",
+  category: "Public Service Awareness",
+},
 ]

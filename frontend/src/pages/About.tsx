@@ -4,7 +4,7 @@ import { team } from "../data/team";
 
 export default function About() {
   return (
-    <div className="bg-[#0c0f1a] text-white min-h-screen">
+    <div className="bg-[#0f172a] text-white">
       <section className="container mx-auto px-6 py-16 text-center">
         <h1 className="text-5xl font-display font-bold mb-6">
           About Putus Production

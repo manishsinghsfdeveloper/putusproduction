@@ -3,7 +3,7 @@ import CaseCard from '@/components/CaseCard'
 import { motion } from 'framer-motion'
 
 export default function Work() {
-  const categories = ['Commercial Ads', 'Short Films', 'Films']
+  const categories = Array.from(new Set(cases.map((c) => c.category)))
 
   return (
     <section className="section relative">
