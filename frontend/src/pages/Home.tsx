@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      <section className="section bg-gradient-to-b from-gray-900 to-black text-gray-200 py-16">
+      <section className="section bg-[#0f172a] text-gray-200 py-16">
         <div className="container max-w-4xl mx-auto text-center space-y-6">
           <h2 className="text-4xl font-display font-bold text-white">About Putus Production</h2>
           <p className="text-lg leading-relaxed">
