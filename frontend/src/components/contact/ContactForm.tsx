@@ -23,6 +23,7 @@ export default function ContactForm() {
         <form className="space-y-6">
           <input type="text" placeholder="Your Name" className="w-full p-4 bg-gray-800 text-white rounded-lg" />
           <input type="email" placeholder="Your Email" className="w-full p-4 bg-gray-800 text-white rounded-lg" />
+          <input type="phone" placeholder="Your Phone" className="w-full p-4 bg-gray-800 text-white rounded-lg" />
           <textarea placeholder="Your Message" className="w-full p-4 bg-gray-800 text-white rounded-lg h-32" />
           <button className="px-8 py-4 bg-white text-[#0f172a] rounded-lg font-semibold hover:bg-gray-300 transition-all duration-300">
             Send Message
