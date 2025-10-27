@@ -11,10 +11,10 @@ export default function SubscribeForm() {
     setStatus("loading");
 
     const formData = new FormData(e.currentTarget);
-    formData.append("subscribe", "true"); // ✅ tells PHP this is a subscribe form
+    formData.append("formType", "subscribe");
 
     try {
-      const res = await fetch("https://putusproduction.com/contact-form-handler.php", {
+      const res = await fetch("/contact-form-handler.php", {
         method: "POST",
         body: formData,
       });
