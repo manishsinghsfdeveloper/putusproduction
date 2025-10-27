@@ -24,7 +24,9 @@ export default function SubscribeForm() {
 
       if (data.success) {
         setStatus("success");
-        e.currentTarget.reset();
+        if (e.currentTarget && typeof e.currentTarget.reset === "function") {
+          e.currentTarget.reset();
+        }
       } else {
         setStatus("error");
       }
