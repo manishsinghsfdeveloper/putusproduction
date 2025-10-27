@@ -11,15 +11,16 @@ export default function SubscribeForm() {
     setStatus("loading");
 
     const formData = new FormData(e.currentTarget);
-    formData.append("formType", "subscribe");
+    formData.append("formType", "subscribe"); // ✅ correct key for PHP
 
     try {
-      const res = await fetch("/contact-form-handler.php", {
+      const res = await fetch("https://putusproduction.com/contact-form-handler.php", {
         method: "POST",
         body: formData,
       });
 
       const data = await res.json();
+      console.log("Server response:", data);
 
       if (data.success) {
         setStatus("success");
@@ -28,8 +29,8 @@ export default function SubscribeForm() {
         setStatus("error");
       }
     } catch (err) {
-      setStatus("error");
       console.error("Error submitting form:", err);
+      setStatus("error");
     }
   }
 
