@@ -20,15 +20,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit(0);
 }
 
-// Handle preflight (CORS)
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    exit(0);
-}
-
 // Only handle POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['success' => false, 'error' => 'Invalid request']);
     exit;
+}
+
+// 🧩 Determine form type correctly
+if (isset($_POST['formType'])) {
+    $formType = trim($_POST['formType']);
+} elseif (isset($_POST['subscribe'])) {
+    $formType = 'subscribe';
+} else {
+    $formType = 'contact';
 }
 
 // Get and sanitize form inputs
@@ -36,7 +40,6 @@ $name = trim($_POST['name'] ?? '');
 $email = trim($_POST['email'] ?? '');
 $phone = trim($_POST['phone'] ?? '');
 $message = trim($_POST['message'] ?? '');
-$formType = trim($_POST['formType'] ?? 'contact'); // "contact" or "subscribe"
 
 // Basic validation
 if (empty($email)) {
@@ -44,18 +47,31 @@ if (empty($email)) {
     exit;
 }
 
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo json_encode(['success' => false, 'error' => 'Invalid email format']);
+    exit;
+}
+
 // 1️⃣ Determine subject and body
 if ($formType === 'subscribe') {
     $subject = "New Subscription Request";
-    $body = "New subscriber details:\n\nName: $name\nEmail: $email\nSubscribed On: " . date('Y-m-d H:i:s');
+    $body = "New subscriber details:\n\n"
+          . "Name: $name\n"
+          . "Email: $email\n"
+          . "Subscribed On: " . date('Y-m-d H:i:s');
 } else {
     $subject = "New Contact Form Submission";
-    $body = "Name: $name\nEmail: $email\nPhone: $phone\nMessage: $message\nSubmitted On: " . date('Y-m-d H:i:s');
+    $body = "Name: $name\n"
+          . "Email: $email\n"
+          . "Phone: $phone\n"
+          . "Message: $message\n"
+          . "Submitted On: " . date('Y-m-d H:i:s');
 }
 
 // 2️⃣ Send Email
 $to = "hello@putusproduction.com";
-$headers = "From: no-reply@putusproduction.com\r\nReply-To: $email\r\n";
+$headers = "From: no-reply@putusproduction.com\r\n";
+$headers .= "Reply-To: $email\r\n";
 
 $mailSuccess = mail($to, $subject, $body, $headers);
 
@@ -64,8 +80,10 @@ $fileName = ($formType === 'subscribe') ? 'subscribe_submissions.csv' : 'contact
 $file = __DIR__ . '/' . $fileName;
 $data = [$name, $email, $phone, $message, date('Y-m-d H:i:s')];
 $fp = fopen($file, 'a');
-fputcsv($fp, $data);
-fclose($fp);
+if ($fp) {
+    fputcsv($fp, $data);
+    fclose($fp);
+}
 
 // 4️⃣ Response
 if ($mailSuccess) {
