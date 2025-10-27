@@ -3,8 +3,13 @@ header('Content-Type: application/json');
 
 // Allow requests from your frontend
 header('Access-Control-Allow-Origin: https://putusproduction.com');
-header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
+
+// Handle preflight (CORS)
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    exit(0);
+}
 
 // Only handle POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -13,32 +18,42 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Get and sanitize form inputs
-$name = $_POST['name'] ?? '';
-$email = $_POST['email'] ?? '';
-$phone = $_POST['phone'] ?? '';
-$message = $_POST['message'] ?? '';
-$subscribe = $_POST['subscribe'] ?? false;
+$name = trim($_POST['name'] ?? '');
+$email = trim($_POST['email'] ?? '');
+$phone = trim($_POST['phone'] ?? '');
+$message = trim($_POST['message'] ?? '');
+$formType = trim($_POST['formType'] ?? 'contact'); // "contact" or "subscribe"
 
-if (empty($name) || empty($email)) {
-    echo json_encode(['success' => false, 'error' => 'Missing required fields']);
+// Basic validation
+if (empty($email)) {
+    echo json_encode(['success' => false, 'error' => 'Email is required']);
     exit;
 }
 
-// 1️⃣ Send Email
+// 1️⃣ Determine subject and body
+if ($formType === 'subscribe') {
+    $subject = "New Subscription Request";
+    $body = "New subscriber details:\n\nName: $name\nEmail: $email\nSubscribed On: " . date('Y-m-d H:i:s');
+} else {
+    $subject = "New Contact Form Submission";
+    $body = "Name: $name\nEmail: $email\nPhone: $phone\nMessage: $message\nSubmitted On: " . date('Y-m-d H:i:s');
+}
+
+// 2️⃣ Send Email
 $to = "hello@putusproduction.com";
-$subject = $subscribe ? "New Subscriber" : "New Contact Form Submission";
-$body = "Name: $name\nEmail: $email\nPhone: $phone\nMessage: $message";
 $headers = "From: no-reply@putusproduction.com\r\nReply-To: $email\r\n";
 
 $mailSuccess = mail($to, $subject, $body, $headers);
 
-// 2️⃣ Save to CSV file
-$file = __DIR__ . '/contact_submissions.csv';
+// 3️⃣ Save to CSV file
+$fileName = ($formType === 'subscribe') ? 'subscribe_submissions.csv' : 'contact_submissions.csv';
+$file = __DIR__ . '/' . $fileName;
 $data = [$name, $email, $phone, $message, date('Y-m-d H:i:s')];
 $fp = fopen($file, 'a');
 fputcsv($fp, $data);
 fclose($fp);
 
+// 4️⃣ Response
 if ($mailSuccess) {
     echo json_encode(['success' => true]);
 } else {
