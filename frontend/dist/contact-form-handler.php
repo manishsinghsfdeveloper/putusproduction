@@ -1,29 +1,47 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Content-Type");
-header("Content-Type: application/json");
+header('Content-Type: application/json');
 
-$data = json_decode(file_get_contents("php://input"), true);
+// Allow requests from your frontend
+header('Access-Control-Allow-Origin: https://putusproduction.com');
+header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Headers: Content-Type');
 
-if (!$data || !isset($data['name']) || !isset($data['email']) || !isset($data['message'])) {
-    echo json_encode(["success" => false, "error" => "Invalid request"]);
+// Only handle POST requests
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    echo json_encode(['success' => false, 'error' => 'Invalid request']);
     exit;
 }
 
-$name = htmlspecialchars($data['name']);
-$email = htmlspecialchars($data['email']);
-$message = htmlspecialchars($data['message']);
+// Get and sanitize form inputs
+$name = $_POST['name'] ?? '';
+$email = $_POST['email'] ?? '';
+$phone = $_POST['phone'] ?? '';
+$message = $_POST['message'] ?? '';
+$subscribe = $_POST['subscribe'] ?? false;
 
+if (empty($name) || empty($email)) {
+    echo json_encode(['success' => false, 'error' => 'Missing required fields']);
+    exit;
+}
+
+// 1️⃣ Send Email
 $to = "hello@putusproduction.com";
-$subject = "New Contact Form Submission from $name";
-$body = "You received a new message:\n\nName: $name\nEmail: $email\nMessage:\n$message\n";
+$subject = $subscribe ? "New Subscriber" : "New Contact Form Submission";
+$body = "Name: $name\nEmail: $email\nPhone: $phone\nMessage: $message";
+$headers = "From: no-reply@putusproduction.com\r\nReply-To: $email\r\n";
 
-$headers = "From: no-reply@putusproduction.com\r\n";
-$headers .= "Reply-To: $email\r\n";
+$mailSuccess = mail($to, $subject, $body, $headers);
 
-if (mail($to, $subject, $body, $headers)) {
-    echo json_encode(["success" => true, "message" => "Message sent successfully!"]);
+// 2️⃣ Save to CSV file
+$file = __DIR__ . '/contact_submissions.csv';
+$data = [$name, $email, $phone, $message, date('Y-m-d H:i:s')];
+$fp = fopen($file, 'a');
+fputcsv($fp, $data);
+fclose($fp);
+
+if ($mailSuccess) {
+    echo json_encode(['success' => true]);
 } else {
-    echo json_encode(["success" => false, "error" => "Failed to send email."]);
+    echo json_encode(['success' => false, 'error' => 'Mail sending failed']);
 }
 ?>
