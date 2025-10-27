@@ -7,7 +7,7 @@ export const team = [
   {
     id: "piyush-priyank",
     name: "Piyush Priyank",
-    title: "Founder & Creative Director",
+    title: "Screenwriter and Director",
     image: team1,
     intro: `Piyush Priyank (Born 18th August) is Indian Film Writer and director. After completing Masters in computers, He shifted to Mumbai to pursue his career in film making. After assisting in some Film projects, he wrote a Sri Lankan Indian Film on Buddha. After that he penned down the Screenplay and dialogue for the crime thriller film Scotland which got him 2 international awards as best writer for that in 2019 in Canadian international film festivals. Then he wrote The successful Loosers a coming to age film. Besides that Piyush wrote and directed a short film with Jameel Khan (Gullak Actor) which also got 6 international awards. Piyush directed few commercials for various products with Saina Nehwal, Mona Sinha, Mallika Sherawat and others.`,
     socials: {
@@ -19,7 +19,7 @@ export const team = [
   {
     id: "shakti-singh",
     name: "Shakti Singh",
-    title: "Head of Production",
+    title: "Head of Operations and Production",
     image: team2,
     intro: `Shakti Singh is a Bokaro Jharkhand-based businessman who is an expert in the education sector. He has done various projects training people for Jharkhand government's skill programs. Educating students gave Shakti a wing to do ad films for various companies who wanted to connect with audiences about their specialization.`,
     socials: {
@@ -31,7 +31,7 @@ export const team = [
   {
     id: "manish-kumar",
     name: "Manish Kumar",
-    title: "Senior Executive Director",
+    title: "Client Strategists and Executioner",
     image: team3,
     intro: `Mr. Manish Kumar is a senior executive with 12 years of experience in the Education & Training sector across Central and various State Governments. Holding a Master’s in Business Administration, he has served as Project Head with several government verticals. Skilled in strategy, fundraising, and marketing, Mr. Kumar manages full project cycles with 100% success and budget adherence.`,
     socials: {

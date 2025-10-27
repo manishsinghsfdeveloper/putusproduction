@@ -14,9 +14,9 @@ export default function Home() {
         <div className="container max-w-4xl mx-auto text-center space-y-6">
           <h2 className="text-4xl font-display font-bold text-white">About Putus Production</h2>
           <p className="text-lg leading-relaxed">
-            Putus (Lantana Camara from the family Verbenaceae) is a versatile and visually striking plant from Jharkhand, India that has both vibrant impacts depending on its context and management. The same context, we carry in our startup Putus.
-            We at Putus do filmmaking, advertisements, promotion of your product, provide our services, idea, and concept for the betterment of our day-to-day life.
-            Our goal is to persuade and influence target audiences to take specific actions, such as purchasing a product, subscribing to a service, or adopting a particular viewpoint on genuine grounds.
+            Putus Production is a creative house where storytelling meets strategy. We craft films, brand campaigns, and visual content that connect emotionally and create cultural impact.<br></br>
+            <br></br>The name Putus comes from Lantana Camara—a vibrant and resilient plant native to Jharkhand, India. Known for its adaptability and striking presence, it reflects our own philosophy: to grow, evolve, and thrive in every creative environment.<br></br>
+            <br></br>At Putus, we make films, advertisements, and original concepts that move people to think, feel, and act—whether that means choosing a brand, exploring an idea, or simply seeing the world in a new light.
           </p>
         </div>
       </section>

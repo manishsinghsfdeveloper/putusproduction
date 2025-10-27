@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { HiMenu, HiX } from "react-icons/hi"
-import logo from "@/assets/logo-light.svg"
+import logo from "@/assets/PutusLogo.jpg"
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -44,7 +44,7 @@ export default function Navbar() {
           <img
             src={logo}
             alt="Putus Production Logo"
-            className="h-10 w-auto object-contain"
+            style={{ height: "75px", width: "120px" }}
           />
         </Link>
 

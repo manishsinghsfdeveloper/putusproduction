@@ -5,8 +5,8 @@ import { team } from "../data/team";
 export default function About() {
   return (
     <div className="bg-[#0f172a] text-white">
-      <section className="container mx-auto px-6 py-16 text-center">
-        <h1 className="text-5xl font-display font-bold mb-6">
+      <section className="container mx-auto px-5 py-20 text-center">
+        <h1 className="text-5xl font-display font-bold mb-6 py-5">
           About Putus Production
         </h1>
         <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -15,27 +15,20 @@ export default function About() {
           production to create work that moves culture.
         </p>
 
-        <div className="mt-12 bg-gray-900/60 p-10 rounded-2xl shadow-lg max-w-5xl mx-auto backdrop-blur-sm">
+        <div className="mt-12 bg-gray-900/60 p-5 rounded-2xl shadow-lg max-w-5xl mx-auto backdrop-blur-sm">
           <p className="text-gray-200 text-lg leading-relaxed">
-            <strong>Putus</strong> (Lantana Camara from the family Verbenaceae)
-            is a versatile and visually striking plant from Jharkhand, India
-            that has both vibrant impacts depending on its context and
-            management. The same context, we carry in our startup Putus.
-            <br />
-            <br />
-            We at Putus do filmmaking, advertisements, promotion of your
-            product, and concept creation for the betterment of everyday life.
-            Our goal is to persuade and influence audiences to take actions such
-            as purchasing a product, subscribing to a service, or adopting a
-            particular viewpoint on genuine grounds.
+            <strong>Putus</strong> 
+            &nbsp; Production is a creative house where storytelling meets strategy. We craft films, brand campaigns, and visual content that connect emotionally and create cultural impact.<br></br>
+            <br></br>The name Putus comes from Lantana Camara—a vibrant and resilient plant native to Jharkhand, India. Known for its adaptability and striking presence, it reflects our own philosophy: to grow, evolve, and thrive in every creative environment.<br></br>
+            <br></br>At Putus, we make films, advertisements, and original concepts that move people to think, feel, and act—whether that means choosing a brand, exploring an idea, or simply seeing the world in a new light.
           </p>
         </div>
       </section>
 
       {/* Leadership */}
-      <section className="container mx-auto px-6 py-20">
+      <section className="container mx-auto px-6 py-1">
         <h2 className="text-4xl font-display font-bold mb-10 text-center">
-          Leadership
+          Who we are...
         </h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 justify-items-center">
           {team.map((member) => (
