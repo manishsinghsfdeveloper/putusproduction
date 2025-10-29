@@ -10,21 +10,62 @@ export type CaseItem = {
   category: 'Commercial Ads' | 'Short Films' | 'Films' | 'Public Service Awareness' 
 }
 
+import shivveda from '@/assets/work/shivveda.jpg'
+import quantum1 from '@/assets/work/quantum-university-01.jpg'
+import hatric from '@/assets/work/hatric-detergent.jpg'
+import quantum2 from '@/assets/work/quantum-university-02.jpg'
 import ppJewellersMother from '@/assets/work/pp-jewellers-mother-daughter.jpg'
 import ppJewellersChild from '@/assets/work/pp-jewellers-child-mother.jpg'
-import quantum1 from '@/assets/work/quantum-university-01.jpg'
-import quantum2 from '@/assets/work/quantum-university-02.jpg'
-import hatric from '@/assets/work/hatric-detergent.jpg'
+import somfy from '@/assets/work/somfy-darpan.jpg'
 import inwyn from '@/assets/work/inwyn.jpg'
 import whiteForce from '@/assets/work/white-force.jpg'
-import shivveda from '@/assets/work/shivveda.jpg'
 import lehenga from '@/assets/work/lehenga-trailer.jpg'
 import scotland from '@/assets/work/scotland-film.jpg'
 import successfulLoosers from '@/assets/work/successful-loosers.jpg'
 import jmmPSA from '@/assets/work/jmm-psa.jpg'
 
 export const cases: CaseItem[] = [
-  {
+    {
+    title: "Shivveda – Mallika Sherawat",
+    client: "Shivveda",
+    slug: "shivveda",
+    thumb: shivveda,
+    videoUrl: "https://vimeo.com/showcase/11211503?video=1076970624",
+    year: "2025",
+    description: "A luxurious wellness commercial featuring Mallika Sherawat.",
+    category: "Commercial Ads",
+    },
+    {
+      title: "Quantum University – Saina Nehwal (01)",
+      client: "Quantum University",
+      slug: "quantum-university-01",
+      thumb: quantum1,
+      videoUrl: "https://vimeo.com/showcase/11211503?video=947013363",
+      year: "2024",
+      description: "Featuring Saina Nehwal for Quantum University campaign.",
+      category: "Commercial Ads",
+    },
+    {
+      title: "Hatric Detergent Powder",
+      client: "Hatric",
+      slug: "hatric-detergent",
+      thumb: hatric,
+      videoUrl: "https://vimeo.com/showcase/11211503?video=911932348",
+      year: "2023",
+      description: "A vibrant detergent commercial emphasizing freshness.",
+      category: "Commercial Ads",
+    },
+      {
+      title: "Quantum University – Saina Nehwal (02)",
+      client: "Quantum University",
+      slug: "quantum-university-02",
+      thumb: quantum2,
+      videoUrl: "https://vimeo.com/showcase/11211503?video=911933544",
+      year: "2024",
+      description: "A powerful educational campaign spot.",
+      category: "Commercial Ads",
+    },
+    {
     title: "PP Jewellers – Mother & Daughter Story",
     client: "PP Jewellers",
     slug: "pp-jewellers-mother-daughter",
@@ -45,33 +86,13 @@ export const cases: CaseItem[] = [
     category: "Commercial Ads",
   },
   {
-    title: "Quantum University – Saina Nehwal (01)",
-    client: "Quantum University",
-    slug: "quantum-university-01",
-    thumb: quantum1,
-    videoUrl: "https://vimeo.com/showcase/11211503?video=947013363",
-    year: "2024",
-    description: "Featuring Saina Nehwal for Quantum University campaign.",
-    category: "Commercial Ads",
-  },
-  {
-    title: "Quantum University – Saina Nehwal (02)",
-    client: "Quantum University",
-    slug: "quantum-university-02",
-    thumb: quantum2,
-    videoUrl: "https://vimeo.com/showcase/11211503?video=911933544",
-    year: "2024",
-    description: "A powerful educational campaign spot.",
-    category: "Commercial Ads",
-  },
-  {
-    title: "Hatric Detergent Powder",
-    client: "Hatric",
-    slug: "hatric-detergent",
-    thumb: hatric,
-    videoUrl: "https://vimeo.com/showcase/11211503?video=911932348",
-    year: "2023",
-    description: "A vibrant detergent commercial emphasizing freshness.",
+    title: "Somfy & Darpan Furnishings",
+    client: "Somfy x Darpan Furnishings",
+    slug: "somfy-darpan-furnishings",
+    thumb: somfy,
+    videoUrl: "https://www.youtube.com/watch?v=veXuK5iuki4",
+    year: "2025",
+    description: "A stylish and elegant collaboration ad between Somfy and Darpan Furnishings.",
     category: "Commercial Ads",
   },
   {
@@ -92,16 +113,6 @@ export const cases: CaseItem[] = [
     videoUrl: "https://vimeo.com/showcase/11211503?video=1028009462",
     year: "2024",
     description: "Creative campaign for White Force.",
-    category: "Commercial Ads",
-  },
-  {
-    title: "Shivveda – Mallika Sherawat",
-    client: "Shivveda",
-    slug: "shivveda",
-    thumb: shivveda,
-    videoUrl: "https://vimeo.com/showcase/11211503?video=1076970624",
-    year: "2025",
-    description: "A luxurious wellness commercial featuring Mallika Sherawat.",
     category: "Commercial Ads",
   },
   {
@@ -144,5 +155,5 @@ export const cases: CaseItem[] = [
   description: "A meaningful government awareness film crafted by Putus Production to promote positive social impact.",
   credits: "Directed and Produced by Putus Production",
   category: "Public Service Awareness",
-},
+ },
 ]

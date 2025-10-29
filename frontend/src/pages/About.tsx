@@ -28,7 +28,7 @@ export default function About() {
       {/* Leadership */}
       <section className="container mx-auto px-6 py-1">
         <h2 className="text-4xl font-display font-bold mb-10 text-center">
-          Who we are...
+          who we are...
         </h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 justify-items-center">
           {team.map((member) => (
