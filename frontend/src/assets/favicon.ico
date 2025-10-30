@@ -1,0 +1,4 @@
+<!-- ✅ Favicon Setup -->
+<link rel="icon" type="image/jpeg" href="/favicon.jpg">
+<link rel="apple-touch-icon" href="/favicon.jpg">
+<meta name="theme-color" content="#000000">
