@@ -38,5 +38,3 @@ jobs:
           local-dir: ./frontend/dist/
           server-dir: ./    
           
-          # Optional but recommended
-          dangerous-clean-slate: true                      
