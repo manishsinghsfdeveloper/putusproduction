@@ -4,7 +4,7 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
-  base: './', // ✅ relative paths (works for Hostinger)
+  base: '/', // ✅ relative paths (works for Hostinger)
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
