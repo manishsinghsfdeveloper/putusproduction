@@ -36,5 +36,8 @@ jobs:
           protocol: ftp
           port: 21
           local-dir: ./frontend/dist/
-          server-dir: /public_html/
-          timeout: 60000                           # ← ADD: fixes timeout error
+          server-dir: ./
+          timeout: 60000     
+          
+          # Optional but recommended
+          dangerous-clean-slate: true                      
