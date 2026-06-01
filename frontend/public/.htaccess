@@ -9,6 +9,7 @@ AddDefaultCharset UTF-8
 # Enable URL rewriting
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  RewriteBase /
 
   # Allow direct access to files and directories
   RewriteCond %{REQUEST_FILENAME} -f [OR]
