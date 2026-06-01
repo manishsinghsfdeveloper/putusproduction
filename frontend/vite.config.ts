@@ -15,5 +15,11 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
+    // Ensure .htaccess and other public files are copied
+    copyPublicDir: true,
   },
+  // Explicitly include .htaccess in public assets
+  publicDir: 'public',
 });
+
+// Made with Bob
